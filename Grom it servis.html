@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grom IT Servis — Windows</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{color-scheme:dark;--bg:#000000;--surface:#0E0F11;--ink:#F2F5F8;--muted:#9AA5B1;--blue:#4DA3FF;--blue-soft:#0F2236;--line:#25282D;--on-blue:#000000;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+:root[data-theme="dark"]{--bg:#000000;--surface:#0E0F11;--ink:#F2F5F8;--muted:#9AA5B1;--blue:#4DA3FF;--blue-soft:#0F2236;--line:#25282D;--on-blue:#000000}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:Unbounded,Manrope,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px;flex-wrap:wrap}
+.logo{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--blue);font-weight:500}
+nav{display:flex;gap:20px;font-weight:500;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
+.right{display:flex;gap:12px;align-items:center}
+.lang{display:flex;border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{font:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--muted);padding:10px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#2b2e34;color:#F2F5F8}
+.btn{display:inline-block;background:var(--blue);color:var(--on-blue);font-weight:700;padding:14px 24px;border-radius:10px;text-decoration:none}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 72px}
+.hero h1{font-size:clamp(28px,4.6vw,44px);font-weight:700;letter-spacing:-.02em}
+.hero p{color:var(--muted);max-width:50ch;margin:20px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.setup{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.setup h2{font-size:15px;font-weight:500;color:var(--muted);margin-bottom:18px;font-family:Manrope,sans-serif}
+.setup ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:12px}
+.setup li{display:flex;gap:12px;align-items:center;font-weight:500}
+.dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;color:var(--on-blue)}
+.setup li.done .dot{background:var(--blue);border-color:var(--blue)}
+.setup li.now .dot{border-color:var(--blue);animation:pulse 1.2s infinite}
+.setup li.todo{color:var(--muted)}
+.bar{height:10px;background:var(--blue-soft);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--blue);border-radius:99px;animation:fill 6s ease-out forwards}
+.pct{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-top:8px}
+@keyframes fill{to{width:78%}}
+@keyframes pulse{50%{box-shadow:0 0 0 6px var(--blue-soft)}}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(24px,3.5vw,32px);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 36px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.plan.main{border:2px solid var(--blue)}
+.plan h3{font-size:18px;margin-bottom:6px}
+.price{font-family:Unbounded,sans-serif;font-size:26px;font-weight:700;margin:8px 0 16px}
+.plan ul{margin:0;padding-left:20px;color:var(--muted)}
+.plan li{margin:6px 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--blue);padding-top:14px}
+.steps li::before{content:counter(s);font-family:Unbounded,sans-serif;font-weight:700;color:var(--blue);display:block;margin-bottom:6px}
+.steps b{display:block;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:15px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:700}
+details p{color:var(--muted);margin:10px 0 0}
+.contact{background:var(--blue-soft);border-radius:18px;padding:40px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.contact p{margin:6px 0 0;color:var(--muted)}
+footer{padding:28px 0 36px;color:var(--muted);font-size:14px}
+@media (max-width:800px){.hero{grid-template-columns:1fr;padding-top:24px}.plans{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}nav{display:none}.contact{padding:28px}}
+@media (prefers-reduced-motion:reduce){.bar i{animation:none;width:78%}.setup li.now .dot{animation:none}html{scroll-behavior:auto}}
+.hud{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:14px;font-weight:500}.hud b{color:var(--blue);font-family:Unbounded,sans-serif}.hud .btn{margin-left:auto;border:0;font:inherit;font-weight:700;cursor:pointer}.hud .btn:disabled{opacity:.5;cursor:default}
+.arena{position:relative;height:300px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.v{position:absolute;width:48px;height:48px;border:0;background:transparent;font-size:34px;cursor:pointer;padding:0;line-height:1;animation:pop .15s ease-out}
+@keyframes pop{from{transform:scale(.3)}}
+.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line)}.tabs button{font:inherit;font-weight:700;background:transparent;color:var(--muted);border:0;border-bottom:3px solid transparent;padding:12px 18px;cursor:pointer}.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--blue)}
+.game-mode .hero,.game-mode section:not(#game):not(#contact){display:none}main:not(.game-mode) #game{display:none}
+.profile-mode .hero,.profile-mode section:not(#profile):not(#contact){display:none}main:not(.profile-mode) #profile{display:none}
+.sk small{display:block;font-size:11px;color:var(--muted)}
+#rc{display:block;width:100%;max-width:720px;height:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;touch-action:manipulation;cursor:pointer;margin-bottom:8px}
+.sk{font-size:26px;background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:4px 8px;cursor:pointer;margin-right:6px}.sk[aria-pressed="true"]{border-color:var(--blue)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+#sw{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);right:8px;z-index:50;display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px}#sw[hidden]{display:none}#sw button{font:inherit;font-size:18px;border:2px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:5px 9px;cursor:pointer}#sw button[aria-pressed="true"]{border-color:var(--blue)}
+:root[data-season="halloween"]{--blue:#FF8A1F;--blue-soft:#2a1405;--surface:#120a05;--line:#3a2210;--bg:#050203}
+:root[data-season="newyear"]{--blue:#F5C84C;--blue-soft:#2a230a;--surface:#0a1430;--line:#1f2c55;--bg:#040b1c}
+:root[data-season="valentine"]{--blue:#FF6FA5;--blue-soft:#2a0f1c;--surface:#14080e;--line:#3a1a28;--bg:#08030a}
+:root[data-season="summer"]{--blue:#FFC53D;--blue-soft:#2a2008;--surface:#0f1a1f;--line:#1f3a44;--bg:#031014}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:40;pointer-events:none}
+.sw-on header{margin-top:52px}
+:root{--surface:#070708;--line:#1c1e22;--b1:#F1F3F5;--b2:#9AA1AB}
+:root[data-season="halloween"]{--b1:#F1F3F5}
+:root[data-season="newyear"]{--b1:#F1F3F5}
+:root[data-season="valentine"]{--b1:#F1F3F5}
+:root[data-season="summer"]{--b1:#F1F3F5}
+.btn{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,var(--b1),var(--b2));color:#0a0a0a;border-radius:12px;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 6px 22px -6px var(--b2);transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,255,255,.35) inset,0 10px 28px -6px var(--b2)}
+.btn::before{content:none}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.btn.alt{box-shadow:none;background:transparent}.btn.alt::after{display:none}
+@media (prefers-reduced-motion:reduce){.btn::after{animation:none;display:none}}
+.logo{display:inline-flex;align-items:center;gap:10px}.logo .mark{flex:none;filter:drop-shadow(0 0 8px var(--blue))}.wm{display:flex;flex-direction:column;line-height:1}.wm b{font-family:Unbounded,sans-serif;font-weight:700;font-size:22px;letter-spacing:.06em;background:linear-gradient(90deg,var(--ink),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}.wm i{font-style:normal;font-family:Manrope,sans-serif;font-weight:700;font-size:10px;letter-spacing:.42em;color:var(--blue);margin-top:5px}
+:root[data-season="halloween"] h1,:root[data-season="halloween"] .logo{text-shadow:0 0 18px rgba(255,138,31,.5)}
+:root[data-season="newyear"] h1{text-shadow:0 0 18px rgba(245,200,76,.45)}
+:root[data-season="valentine"] h1{text-shadow:0 0 18px rgba(255,111,165,.45)}
+:root[data-season="summer"] h1{text-shadow:0 0 18px rgba(255,197,61,.45)}
+.logo .mark .bz{animation:zap 3.6s ease-in-out infinite}@keyframes zap{0%,86%,100%{opacity:1}89%{opacity:.35}92%{opacity:1}95%{opacity:.5}}@media (prefers-reduced-motion:reduce){.logo .mark .bz{animation:none}}
+.logo .mark .rg,.logo .mark .orb{transform-origin:24px 24px}.logo .mark .rg{animation:spin 26s linear infinite reverse}.logo .mark .orb{animation:spin 7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.logo .mark .rg,.logo .mark .orb{animation:none}}
+.logo .mark .sv{display:none}:root:not([data-season]) .logo .sv-d,:root[data-season="halloween"] .logo .sv-h,:root[data-season="newyear"] .logo .sv-n,:root[data-season="valentine"] .logo .sv-v,:root[data-season="summer"] .logo .sv-s{display:inline}.logo .mark .fl{animation:bob 3.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-.7px)}}@media (prefers-reduced-motion:reduce){.logo .mark .fl{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="sw" hidden role="group" aria-label="Tema"><button type="button" data-s="default" aria-label="Normal" title="Normal">✨</button><button type="button" data-s="halloween" aria-label="Halloween" title="Halloween">🎃</button><button type="button" data-s="newyear" aria-label="Año Nuevo" title="Año Nuevo">🎄</button><button type="button" data-s="valentine" aria-label="San Valentín" title="San Valentín">💝</button><button type="button" data-s="summer" aria-label="Verano" title="Verano">☀️</button><button type="button" id="swx" aria-label="Ocultar" title="Ocultar">✕</button></div>
+<div class="wrap">
+<header>
+  <a class="logo" href="#top" aria-label="Grom IT Servis"><svg class="mark" width="50" height="50" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgb" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#c3c9d1"/><stop offset="1" stop-color="#7d848e"/></linearGradient><linearGradient id="lgr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#6b717b"/><stop offset="1" stop-color="#23262b"/></linearGradient><linearGradient id="lgz" x1=".3" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" style="stop-color:var(--blue)"/></linearGradient><radialGradient id="lgg" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><filter id="lgf" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="1.7"/></filter><linearGradient id="lgt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fd68a"/><stop offset="1" stop-color="#0f7a3a"/></linearGradient><linearGradient id="lgh" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#ffb3d1"/><stop offset="1" stop-color="#ff2f7a"/></linearGradient><radialGradient id="lgs" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff3a8"/><stop offset="1" stop-color="#ffab00"/></radialGradient></defs><circle cx="24" cy="24" r="21.6" fill="#050506" stroke="url(#lgr)" stroke-width="2.2"/><circle cx="24" cy="24" r="21.6" fill="url(#lgg)"/><circle cx="24" cy="24" r="19.8" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width=".6"/><circle class="rg" cx="24" cy="24" r="17.4" fill="none" stroke="#5a606a" stroke-width="1" stroke-dasharray="1.6 3.1" stroke-linecap="round"/><g class="orb"><circle cx="24" cy="4.9" r="2.8" style="fill:var(--blue)" opacity=".45" filter="url(#lgf)"/><circle cx="24" cy="4.9" r="1.3" fill="#fff"/></g><path d="M33.6 15.6A12.6 12.6 0 1 0 36.6 24H29.5" fill="none" style="stroke:var(--blue)" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" opacity=".4" filter="url(#lgf)"/><path d="M33.6 15.6A12.6 12.6 0 1 0 36.6 24H29.5" fill="none" stroke="url(#lgb)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.6 15.6A12.6 12.6 0 1 0 36.6 24H29.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width=".7" stroke-linecap="round" transform="translate(-.6 -.6)"/><g class="sv sv-d"><g class="bz"><path d="M26.8 14.2 19.4 25.2h4.6l-1.8 8.6 7.6-11.4h-4.8Z" style="fill:var(--blue)" opacity=".9" filter="url(#lgf)"/><path d="M26.8 14.2 19.4 25.2h4.6l-1.8 8.6 7.6-11.4h-4.8Z" fill="url(#lgz)" stroke="#fff" stroke-opacity=".7" stroke-width=".6" stroke-linejoin="round"/><g stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".8"><path d="M31.2 13.4l1.6-1.4M17 29.6l-1.9 1.2M30.4 31.6l1.7 1"/></g></g></g><g class="sv sv-h"><g class="fl"><circle cx="24" cy="24.5" r="9" style="fill:var(--blue)" opacity=".28" filter="url(#lgf)"/><g transform="translate(24 25.6) scale(.8) translate(-24 -25.6)"><ellipse cx="24" cy="25.6" rx="8" ry="6.4" fill="#ff8a1f"/><ellipse cx="19.6" cy="25.6" rx="4.4" ry="6.2" fill="#ffa02e"/><ellipse cx="28.4" cy="25.6" rx="4.4" ry="6.2" fill="#ffa02e"/><ellipse cx="24" cy="25.6" rx="3.5" ry="6.5" fill="#ff7a0a"/><path d="M23.2 19.4q.4-3.2 3.2-3.6l.5 1.3q-1.7.3-1.9 2.5z" fill="#5fa12e"/><path d="M19.4 25.3l1.9-2.7 1.9 2.7zM24.8 25.3l1.9-2.7 1.9 2.7z" fill="#ffe27a"/><path d="M19.8 27.8h8.4l-1.3 2-1.5-1.2-1.4 1.5-1.4-1.5-1.5 1.2z" fill="#ffe27a"/></g></g><path d="M32.4 10.2q1.6-2.2 3.2-.5 1.6-1.7 3.2.5-1.7-.4-3.2 1.3-1.5-1.7-3.2-1.3z" fill="#ff8a1f"/></g><g class="sv sv-n"><g class="fl"><circle cx="24" cy="24.5" r="9" style="fill:var(--blue)" opacity=".28" filter="url(#lgf)"/><path d="M24 15.6 28.9 21.6H19.1Z" fill="url(#lgt)"/><path d="M24 18.6 29.8 25.6H18.2Z" fill="url(#lgt)"/><path d="M24 21.6 30.8 30H17.2Z" fill="url(#lgt)"/><rect x="22.6" y="30" width="2.8" height="2.4" rx=".5" fill="#8a5427"/><path d="M24 12.6l.8 1.7 1.8.2-1.3 1.2.4 1.8-1.7-.9-1.7.9.4-1.8-1.3-1.2 1.8-.2z" fill="#ffd24d"/><circle cx="22" cy="25.8" r=".95" fill="#ff4d6d"/><circle cx="26.4" cy="24" r=".95" fill="#ffd24d"/><circle cx="24" cy="29" r=".95" fill="#4dc3ff"/><circle cx="20.6" cy="29.2" r=".8" fill="#ffd24d"/></g><g transform="rotate(-38 12 11)"><path d="M7.6 13.4Q9.2 5.8 15.6 7.6Q12.8 9.4 13.6 13.4Z" fill="#e63946"/><rect x="6.8" y="12.4" width="7.8" height="2.5" rx="1.25" fill="#fff"/><circle cx="15.9" cy="7.5" r="1.5" fill="#fff"/></g></g><g class="sv sv-v"><g class="fl"><circle cx="24" cy="24.5" r="9" style="fill:var(--blue)" opacity=".28" filter="url(#lgf)"/><path d="M24 31.5C17 26.5 16.5 20.5 20.5 19.2C22.3 18.6 23.6 19.6 24 21C24.4 19.6 25.7 18.6 27.5 19.2C31.5 20.5 31 26.5 24 31.5Z" fill="url(#lgh)" stroke="#fff" stroke-opacity=".5" stroke-width=".5" stroke-linejoin="round"/><ellipse cx="21" cy="21.7" rx="1.9" ry="1.1" transform="rotate(-35 21 21.7)" fill="#fff" opacity=".65"/><path d="M27.6 17.2l.5 1.2 1.2.5-1.2.5-.5 1.2-.5-1.2-1.2-.5 1.2-.5z" fill="#fff" opacity=".85"/></g><path d="M24 31.5C17 26.5 16.5 20.5 20.5 19.2C22.3 18.6 23.6 19.6 24 21C24.4 19.6 25.7 18.6 27.5 19.2C31.5 20.5 31 26.5 24 31.5Z" transform="translate(28.6 1.6) scale(.28)" fill="#ff6fa5"/></g><g class="sv sv-s"><g class="fl"><circle cx="24" cy="24.5" r="9" style="fill:var(--blue)" opacity=".28" filter="url(#lgf)"/><g stroke="#ffc53d" stroke-width="1.4" stroke-linecap="round"><path d="M27.45 26.65L28.87 28.07"/><path d="M23.00 28.50L23.00 30.50"/><path d="M18.55 26.65L17.13 28.07"/><path d="M16.70 22.20L14.70 22.20"/><path d="M18.55 17.75L17.13 16.33"/><path d="M23.00 15.90L23.00 13.90"/><path d="M27.45 17.75L28.87 16.33"/></g><circle cx="23" cy="22.2" r="4.3" fill="url(#lgs)"/><path d="M19.4 29.6q1.4-1.8 2.8 0t2.8 0 2.8 0" fill="none" stroke="#5fe0ee" stroke-width="1.5" stroke-linecap="round"/><path d="M20.2 32.2q1.3-1.6 2.6 0t2.6 0 2.6 0" fill="none" stroke="#1fa0c4" stroke-width="1.5" stroke-linecap="round"/></g><path d="M37.6 6.8l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z" fill="#fff"/></g></svg><span class="wm"><b>GROM</b><i>IT SERVIS</i></span> <span id="se" aria-hidden="true"></span></a>
+  <nav><a href="#price" data-i18n="n1">Precios</a><a href="#how" data-i18n="n2">Cómo funciona</a><a href="#faq" data-i18n="n3">Preguntas</a><a href="#contact" data-i18n="n4">Contacto</a></nav>
+  <div class="right">
+    <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-l="es" aria-pressed="true">ES</button><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="uk" aria-pressed="false">UA</button></div>
+    <a class="btn" href="#contact" data-i18n="order">Pedir ahora</a>
+  </div>
+</header>
+<div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="main" data-i18n="tb1">Servicios</button><button type="button" role="tab" aria-selected="false" data-t="game" data-i18n="tb2">Juego</button></div>
+
+<main id="top">
+<div class="hero">
+  <div>
+    <h1 data-i18n="h1">Reinstalamos Windows para que tu ordenador vuelva a volar</h1>
+    <p data-i18n="hp">Instalación limpia de Windows 10 u 11, controladores, programas y copia de tus archivos. A domicilio o en remoto.</p>
+    <div class="cta"><a class="btn" href="#contact" data-i18n="c1">Llamar a un técnico</a><a class="btn alt" href="#price" data-i18n="c2">Ver precios</a></div>
+  </div>
+  <div class="setup">
+    <h2 data-i18n="sh">Qué le pasa a tu PC</h2>
+    <ul>
+      <li class="done"><span class="dot">✓</span><span data-i18n="s1">Copiamos tus archivos</span></li>
+      <li class="done"><span class="dot">✓</span><span data-i18n="s2">Formateamos el disco del sistema</span></li>
+      <li class="now"><span class="dot"></span><span data-i18n="s3">Instalamos Windows</span></li>
+      <li class="todo"><span class="dot"></span><span data-i18n="s4">Instalamos controladores</span></li>
+      <li class="todo"><span class="dot"></span><span data-i18n="s5">Configuramos programas</span></li>
+    </ul>
+    <div class="bar"><i></i></div>
+    <div class="pct"><span data-i18n="p1">Instalando</span><span data-i18n="p2">casi listo</span></div>
+  </div>
+</div>
+
+<section id="price">
+  <h2 data-i18n="t1">Precios</h2>
+  <p class="lead" data-i18n="t1l">Precio fijo, sin sorpresas. Te decimos el total antes de empezar.</p>
+  <div class="plans">
+    <div class="plan"><h3 data-i18n="a1">Básico</h3><div class="price">40 €</div>
+      <ul><li data-i18n="a1a">Instalación limpia de Windows</li><li data-i18n="a1b">Controladores</li><li data-i18n="a1c">Antivirus</li></ul></div>
+    <div class="plan main"><h3 data-i18n="a2">Estándar</h3><div class="price">60 €</div>
+      <ul><li data-i18n="a2a">Todo lo del Básico</li><li data-i18n="a2b">Copia de tus documentos y fotos</li><li data-i18n="a2c">Navegador, ofimática, compresor y mensajería</li><li data-i18n="a2d">Garantía de 30 días</li></ul></div>
+    <div class="plan"><h3 data-i18n="a3">A domicilio</h3><div class="price">85 €</div>
+      <ul><li data-i18n="a3a">Todo lo del Estándar</li><li data-i18n="a3b">El técnico va a tu casa u oficina</li><li data-i18n="a3c">Configuración de Wi-Fi e impresora</li></ul></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2 data-i18n="t2">Cómo funciona</h2>
+  <p class="lead" data-i18n="t2l">De la llamada al ordenador listo, normalmente en 2–3 horas.</p>
+  <ol class="steps">
+    <li><b data-i18n="w1">Solicitud</b><span data-i18n="w1d">Nos llamas o escribes y nos cuentas el problema.</span></li>
+    <li><b data-i18n="w2">Diagnóstico</b><span data-i18n="w2d">Revisamos disco y sistema para no perder datos.</span></li>
+    <li><b data-i18n="w3">Instalación</b><span data-i18n="w3d">Copiamos archivos e instalamos Windows, controladores y programas.</span></li>
+    <li><b data-i18n="w4">Entrega</b><span data-i18n="w4d">Te enseñamos dónde está todo y te devolvemos tus archivos.</span></li>
+  </ol>
+</section>
+
+<section id="faq">
+  <h2 data-i18n="t3">Preguntas frecuentes</h2>
+  <details><summary data-i18n="q1">¿Se conservarán mis archivos?</summary><p data-i18n="q1a">Sí. Antes de instalar copiamos documentos, fotos y escritorio, y después los devolvemos a su sitio.</p></details>
+  <details><summary data-i18n="q2">¿Cuánto tarda?</summary><p data-i18n="q2a">Normalmente de 2 a 3 horas. Algo más si hay muchos datos que migrar.</p></details>
+  <details><summary data-i18n="q3">¿Necesito licencia de Windows?</summary><p data-i18n="q3a">Si el equipo ya tenía licencia, se activa solo. Si no, te explicamos las opciones.</p></details>
+  <details><summary data-i18n="q4">¿Se puede hacer en remoto?</summary><p data-i18n="q4a">Sí, si el equipo enciende y hay internet. Para una instalación limpia con formateo es mejor ir en persona.</p></details>
+</section>
+
+<section id="game">
+  <h2 data-i18n="rgt">Salta el virus</h2>
+  <p class="lead" data-i18n="rgl">Pasa los 10 niveles, derrota al jefe de cada uno, recoge gemas y compra personajes. Toca la pantalla o pulsa Espacio para saltar y A atrás, D adelante, W saltar, F disparar, Z ultimate. Con las gemas abre cajas o compra personajes en la tienda de abajo.</p>
+  <div class="hud"><span><span data-i18n="gsc">Puntos</span>: <b id="rs">0</b></span><span><span data-i18n="rlv">Nivel</span>: <b id="rv">1</b></span><span><span data-i18n="rco">Gemas</span>: <b id="rm">0</b></span><span><span data-i18n="rmx">Máx. nivel</span>: <b id="rb">0</b></span></div>
+  <canvas id="rc" width="720" height="260" tabindex="0" aria-label="Juego"></canvas>
+  <div class="hud" style="margin:0 0 12px"><button class="btn" id="kl" type="button" aria-label="A" style="margin:0;border:0;font:inherit;font-weight:700;cursor:pointer;touch-action:manipulation">◀ A</button><button class="btn" id="kr" type="button" aria-label="D" style="margin:0;border:0;font:inherit;font-weight:700;cursor:pointer;touch-action:manipulation">D ▶</button><button class="btn" id="bj" type="button" aria-label="W" style="margin:0;border:0;font:inherit;font-weight:700;cursor:pointer;touch-action:manipulation">⤒ W</button><button class="btn" id="fire" type="button" data-i18n="fr" style="margin:0;border:0;font:inherit;font-weight:700;cursor:pointer;touch-action:manipulation">🔫 Disparar (F)</button><button class="btn" id="ub" type="button" data-i18n="ul" style="margin:0;border:0;font:inherit;font-weight:700;cursor:pointer;touch-action:manipulation">💥 Ultimate (Z)</button></div>
+  
+  <h3 data-i18n="psh" style="margin:24px 0 12px;font-size:18px">Tienda de personajes</h3>
+  <div id="rsl" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  <div class="hud" style="margin:20px 0 8px"><button class="btn" id="rbox" type="button" style="margin-left:0" data-i18n="rbx">Abrir caja · 10 gemas</button><span id="rmsg" aria-live="polite"></span></div>
+</section>
+<section id="game-old" hidden>
+  <h2 data-i18n="gt">Caza virus</h2>
+  <p class="lead" data-i18n="gl">Elimina todos los virus que puedas en 20 segundos. Toca cada 🦠 antes de que desaparezca.</p>
+  <div class="hud"><span><span data-i18n="gsc">Puntos</span>: <b id="sc">0</b></span><span><span data-i18n="gtm">Tiempo</span>: <b id="tm">20</b></span><span><span data-i18n="gb">Récord</span>: <b id="bs">0</b></span><button class="btn" id="go" type="button" data-i18n="gs">Jugar</button></div>
+  <div class="arena" id="ar" role="group" aria-label="Virus"></div>
+  <p id="ge" class="lead" data-i18n="gend" hidden style="margin:16px 0 0">¡Tiempo! ¿Y si tu PC tiene virus de verdad? Escríbenos por WhatsApp.</p>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div><h2 data-i18n="k1">¿Necesitas ayuda con Windows?</h2><p data-i18n="k2">Llámanos o escríbenos todos los días de 9:00 a 20:00.</p></div>
+    <div class="cta"><a class="btn" href="tel:+34624228107">+34 624 22 81 07</a><a class="btn alt" href="https://wa.me/34624228107" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+</section>
+</main>
+<footer data-i18n="f">© 2026 Grom IT Servis. Reinstalación de Windows y asistencia informática.</footer>
+</div>
+<script>
+var EN={n1:"Pricing",n2:"How it works",n3:"FAQ",n4:"Contact",order:"Order now",
+h1:"We reinstall Windows so your computer flies again",
+hp:"Clean install of Windows 10 or 11, drivers, programs and a backup of your files. At your home or remotely.",
+c1:"Call a technician",c2:"See pricing",sh:"What happens to your PC",
+s1:"We back up your files",s2:"We format the system disk",s3:"We install Windows",s4:"We install drivers",s5:"We set up your programs",
+p1:"Installing",p2:"almost done",t1:"Pricing",t1l:"Fixed price, no surprises. We tell you the total before we start.",
+a1:"Basic",a1a:"Clean Windows install",a1b:"Drivers",a1c:"Antivirus",
+a2:"Standard",a2a:"Everything in Basic",a2b:"Backup of your documents and photos",a2c:"Browser, office suite, archiver and messaging apps",a2d:"30-day warranty",
+a3:"On-site",a3a:"Everything in Standard",a3b:"A technician comes to your home or office",a3c:"Wi-Fi and printer setup",
+t2:"How it works",t2l:"From your call to a ready computer, usually in 2–3 hours.",
+w1:"Request",w1d:"You call or message us and describe the problem.",
+w2:"Diagnosis",w2d:"We check the disk and the system so no data is lost.",
+w3:"Installation",w3d:"We back up files and install Windows, drivers and programs.",
+w4:"Handover",w4d:"We show you where everything is and give your files back.",
+t3:"Frequently asked questions",
+q1:"Will my files be kept?",q1a:"Yes. Before installing we back up your documents, photos and desktop, then put them back afterwards.",
+q2:"How long does it take?",q2a:"Usually 2 to 3 hours. A bit longer if there is a lot of data to move.",
+q3:"Do I need a Windows license?",q3a:"If the computer already had a license, it activates by itself. If not, we explain your options.",
+q4:"Can it be done remotely?",q4a:"Yes, if the computer starts and has internet. For a clean install with formatting, an in-person visit is better.",
+k1:"Need help with Windows?",k2:"Call or message us every day from 9:00 to 20:00.",
+f:"© 2026 Grom IT Servis. Windows reinstallation and computer support.",
+fr:"🔫 Shoot (F)",ul:"💥 Ultimate (Z)",rgt:"Jump the virus",rgl:"Clear all 10 levels, beat the boss at the end of each, collect gems and buy characters. Tap the screen or press Space to jump, A back, D forward, W jump, F shoot, Z ultimate. Spend gems on cases or buy characters in the shop below.",rlv:"Level",rco:"Gems",rbx:"Open case · 10 gems",rsk:"Your characters:",rmx:"Best level",tb1:"Services",tb3:"Profile",pft:"Profile",pfl:"Your gems, progress and characters are kept here.",psh:"Character shop",tb2:"Game",gt:"Virus hunt",gl:"Wipe out as many viruses as you can in 20 seconds. Tap each 🦠 before it disappears.",gsc:"Score",gtm:"Time",gb:"Best",gs:"Play",gend:"Time’s up! What if your PC has real viruses? Message us on WhatsApp."};
+var UK={n1:"Ціни",n2:"Як це працює",n3:"Питання",n4:"Контакти",order:"Замовити",
+h1:"Переустановимо Windows так, щоб комп’ютер знову літав",
+hp:"Чиста установка Windows 10 або 11, драйвери, потрібні програми і збереження ваших файлів. З виїздом додому або віддалено.",
+c1:"Викликати майстра",c2:"Дивитись ціни",sh:"Що відбувається з вашим ПК",
+s1:"Копіюємо ваші файли",s2:"Форматуємо системний диск",s3:"Встановлюємо Windows",s4:"Ставимо драйвери",s5:"Налаштовуємо програми",
+p1:"Встановлення",p2:"майже готово",t1:"Ціни",t1l:"Фіксована вартість, без прихованих доплат. Остаточну суму називаємо до початку роботи.",
+a1:"Базова",a1a:"Чиста установка Windows",a1b:"Драйвери",a1c:"Антивірус",
+a2:"Стандарт",a2a:"Усе з Базової",a2b:"Збереження файлів і документів",a2c:"Браузер, офіс, архіватор, месенджери",a2d:"Гарантія 30 днів",
+a3:"З виїздом",a3a:"Усе зі Стандарту",a3b:"Майстер приїжджає додому або в офіс",a3c:"Налаштування Wi-Fi і принтера",
+t2:"Як це працює",t2l:"Від дзвінка до робочого комп’ютера, зазвичай за 2–3 години.",
+w1:"Заявка",w1d:"Телефонуєте або пишете в месенджер, описуєте проблему.",
+w2:"Діагностика",w2d:"Перевіряємо диск і систему, щоб не втратити дані.",
+w3:"Установка",w3d:"Копіюємо файли, ставимо Windows, драйвери і програми.",
+w4:"Здача",w4d:"Показуємо, що де лежить, і повертаємо ваші файли.",
+t3:"Часті питання",
+q1:"Мої файли збережуться?",q1a:"Так. Перед установкою ми копіюємо документи, фото й робочий стіл, а після неї повертаємо на місце.",
+q2:"Скільки триває переустановлення?",q2a:"Зазвичай від 2 до 3 годин. Якщо потрібно перенести багато даних, трохи більше.",
+q3:"Чи потрібна ліцензія Windows?",q3a:"Якщо в комп’ютера вже була ліцензія, система активується сама. Інакше підкажемо варіанти.",
+q4:"Можна зробити це віддалено?",q4a:"Так, якщо комп’ютер вмикається і є інтернет. Для чистої установки з форматуванням краще виїзд.",
+k1:"Потрібна допомога з Windows?",k2:"Телефонуйте або пишіть щодня з 9:00 до 20:00.",
+f:"© 2026 Grom IT Servis. Переустановлення Windows і комп’ютерна допомога.",
+fr:"🔫 Стріляти (F)",ul:"💥 Ульта (Z)",rgt:"Стрибай через віруси",rgl:"Пройди 10 рівнів, переможи боса в кінці кожного, збирай кристали й купуй персонажів. Торкайся екрана або натискай Пробіл, щоб стрибнути, A назад, D вперед, W стрибок, F стрільба, Z ульта. За кристали відкривай кейси або купуй персонажів у магазині нижче.",rlv:"Рівень",rco:"Кристали",rbx:"Відкрити кейс · 10 кристалів",rsk:"Твої персонажі:",rmx:"Макс. рівень",tb1:"Послуги",tb3:"Профіль",pft:"Профіль",pfl:"Тут зберігаються твої кристали, прогрес і персонажі.",psh:"Магазин персонажів",tb2:"Гра",gt:"Лови віруси",gl:"Знищ якомога більше вірусів за 20 секунд. Натискай на кожен 🦠, поки він не зник.",gsc:"Очки",gtm:"Час",gb:"Рекорд",gs:"Грати",gend:"Час вийшов! А що, коли в твоєму ПК справжні віруси? Напиши нам у WhatsApp."};
+var nodes=[].slice.call(document.querySelectorAll("[data-i18n]")),btns=[].slice.call(document.querySelectorAll(".lang button"));
+nodes.forEach(function(n){n.setAttribute("data-es",n.textContent)});
+function setLang(l){document.documentElement.lang=l;
+nodes.forEach(function(n){var d=l==="uk"?UK:(l==="en"?EN:null);n.textContent=d?d[n.getAttribute("data-i18n")]:n.getAttribute("data-es")});
+btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===l)});
+try{localStorage.setItem("lang",l)}catch(e){}}
+btns.forEach(function(b){b.addEventListener("click",function(){setLang(b.getAttribute("data-l"))})});
+var l0="es";try{l0=localStorage.getItem("lang")||"es"}catch(e){}
+if(l0==="en"||l0==="uk")setLang(l0);
+(function(){var ar=document.getElementById("ar"),sc=document.getElementById("sc"),tm=document.getElementById("tm"),bs=document.getElementById("bs"),go=document.getElementById("go"),ge=document.getElementById("ge"),s=0,t=0,run=false,iv,sp;
+try{bs.textContent=localStorage.getItem("best")||0}catch(e){}
+function spawn(){if(!run)return;var b=document.createElement("button");b.type="button";b.className="v";b.textContent="🦠";b.setAttribute("aria-label","virus");
+b.style.left=Math.random()*(ar.clientWidth-48)+"px";b.style.top=Math.random()*(ar.clientHeight-48)+"px";
+b.onclick=function(){if(!run)return;s++;sc.textContent=s;b.remove()};ar.appendChild(b);
+setTimeout(function(){b.remove()},1000);sp=setTimeout(spawn,Math.max(280,750-s*12))}
+function end(){run=false;clearInterval(iv);clearTimeout(sp);ar.innerHTML="";ge.hidden=false;go.disabled=false;
+try{if(s>(+localStorage.getItem("best")||0))localStorage.setItem("best",s);bs.textContent=localStorage.getItem("best")}catch(e){bs.textContent=Math.max(+bs.textContent,s)}}
+go.onclick=function(){s=0;t=20;sc.textContent=0;tm.textContent=t;ge.hidden=true;ar.innerHTML="";run=true;go.disabled=true;spawn();iv=setInterval(function(){t--;tm.textContent=t;if(t<=0)end()},1000)};
+})();
+(function(){var cv=document.getElementById('rc'),x=cv.getContext('2d'),m=document.getElementById('top'),W=720,GY=215,PX=80,
+E=function(i){return document.getElementById(i)},rs=E('rs'),rv=E('rv'),rm=E('rm'),rb=E('rb'),rbox=E('rbox'),rmsg=E('rmsg'),rsl=E('rsl'),
+SK=[['🥷',50],['🦇',50],['🐺',25],['👻',15],['🦹',10],['🐲',6],['💎',3],['👑',1]],
+TH=[['#14060a','#3a0d14','🦇'],['#0a0614','#2a0f3a','🕸️'],['#06140a','#0f3a1a','👁️'],['#140a06','#3a1a0a','🩸'],['#06101a','#0d2a3a','🌫️'],['#1a0606','#4a0d0d','🕯️'],['#0d0d14','#1f1f3a','🌑'],['#0f1406','#2a3a0d','🪦'],['#14140a','#3a3a10','⚰️'],['#000000','#2a0a0a','💀']],
+OB=['🦠','👾','☣️','🧫','🦠','👾','☣️','🦠','🧫','👾'],
+BS=['👹','👺','🤡','👽','🐙','🦖','🧛','🧟','🤖','☠️'],bgt=0,bl=[],bhp=1,bmax=1,cd=0,ul=0,fx=0,
+st={own:['🥷'],cur:'🥷',coins:0,best:0},
+G={es:{go:'Toca o pulsa Espacio para empezar',over:'Fin del juego · toca para reintentar',lv:'Nivel',got:'¡Nuevo personaje!',dup:'Repetido: te devolvemos 3 gemas',no:'Te faltan gemas',win:'¡Jefe derrotado! Recibes gemas · toca para continuar',all:'¡Has superado todos los niveles! Toca para volver a empezar'},en:{go:'Tap or press Space to start',over:'Game over · tap to retry',lv:'Level',got:'New character!',dup:'Duplicate: 3 gems back',no:'Not enough gems',win:'Boss defeated! Gems earned · tap to continue',all:'All levels complete! Tap to play again'},uk:{go:'Натисни або Пробіл, щоб почати',over:'Кінець гри · натисни, щоб спробувати ще',lv:'Рівень',got:'Новий персонаж!',dup:'Повтор: повертаємо 3 кристали',no:'Не вистачає кристалів',win:'Боса переможено! Отримуєш кристали · натисни, щоб продовжити',all:'Усі рівні пройдено! Натисни, щоб почати знову'}},
+run=false,over=false,won=0,boss=false,bt=0,bp=0,pj=[],py=GY,vy=0,ob=[],cn=[],dist=0,lvl=1,fl=0,sp=0,last=0;
+var cs='',ready=false,PJ='🔥',BU='🔹',CN='💎',HU=[120,150,180,210,260,290,55],GS={'':{sk:[['🥷',50],['🦇',50],['🐺',25],['👻',15],['🦹',10],['🐲',6],['💎',3],['👑',1]],bs:['👹','👺','🤡','👽','🐙','🦖','🧛','🧟','🤖','☠️'],th:[['#14060a','#3a0d14'],['#0a0614','#2a0f3a'],['#06140a','#0f3a1a'],['#140a06','#3a1a0a'],['#06101a','#0d2a3a'],['#1a0606','#4a0d0d'],['#0d0d14','#1f1f3a'],['#0f1406','#2a3a0d'],['#14140a','#3a3a10'],['#000000','#2a0a0a']],pj:'🔥',bu:'🔹',cn:'💎',hu:[120,150,180,210,260,290,55]},halloween:{sk:[['🧙',50],['🎃',50],['👻',25],['🧛',15],['🧟',10],['🦇',6],['💎',3],['👑',1]],bs:['🎃','👻','🧟','🕷️','🧛','🧙','💀','👹','🦇','☠️'],th:[['#1a0a00','#4a1d00'],['#150a1f','#3a1458'],['#0a1a0a','#1d4a1d'],['#1f0a0a','#4a1414'],['#0d0d1a','#251a4a'],['#1a1000','#4a3300'],['#14001a','#3a0a4a'],['#001a14','#0a4a3a'],['#1a0a14','#4a1433'],['#000000','#2a0a00']],pj:'🔥',bu:'🔸',cn:'🍬',hu:[28,35,275,290,100,45]},newyear:{sk:[['🎅',50],['🤶',50],['⛄',25],['🦌',15],['🧝',10],['🎁',6],['💎',3],['👑',1]],bs:['⛄','🎄','🦌','🐻','🧊','🎅','👹','🐲','🦣','🥶'],th:[['#04101f','#0d2b4a'],['#06142a','#14395e'],['#0a0f2a','#1d2a63'],['#05161f','#0f4048'],['#0f0a2a','#2e1d63'],['#04101f','#1a3a5e'],['#0a1f1a','#0f4a38'],['#1a0a0a','#4a1414'],['#0a0a1a','#1a1a4a'],['#000814','#001d3d']],pj:'❄️',bu:'⭐',cn:'🎁',hu:[190,200,210,170,220,150]},valentine:{sk:[['😎',50],['🥰',50],['🧸',25],['🦄',15],['🐱',10],['💘',6],['💎',3],['👑',1]],bs:['💔','😈','👿','🦂','🥀','🖤','🐍','👹','🦇','💀'],th:[['#1a0612','#4a0f33'],['#14061a','#3a0f4a'],['#1a0a14','#5a1440'],['#0f0a1f','#2b1a5e'],['#1f0a10','#5e1a2a'],['#18061a','#4a145e'],['#1a0614','#44103a'],['#0a0a1a','#2a1a5e'],['#1a0a1a','#5e1a5e'],['#000000','#3a0a2a']],pj:'💔',bu:'💗',cn:'🍫',hu:[320,330,300,280,340,310]},summer:{sk:[['🏄',50],['🤿',50],['🦈',25],['🐙',15],['🦀',10],['🐬',6],['💎',3],['👑',1]],bs:['🦈','🐙','🦀','🐊','🦂','🦑','🐋','🌋','🌞','🐲'],th:[['#03162a','#0a4a7a'],['#021f2a','#0a6a7a'],['#2a1a03','#7a4a0a'],['#2a0a03','#7a2a0a'],['#03202a','#0a5a6a'],['#052a14','#0f7a3a'],['#2a2203','#7a640a'],['#2a0314','#7a0a3a'],['#030a2a','#0a1f7a'],['#000a14','#003a5a']],pj:'🌊',bu:'💧',cn:'🐚',hu:[45,35,170,200,120,185]}};
+function skey(){return 'rg3'+(cs?'-'+cs:'')}
+function apS(s){var c=GS[s]||GS[''],s1;if(ready)save();cs=GS[s]?s:'';SK=c.sk;BS=c.bs;TH=c.th;PJ=c.pj;BU=c.bu;CN=c.cn;HU=c.hu;PR={};SK.forEach(function(k,i){PR[k[0]]=[0,15,30,45,70,100,150,250][i]});st={own:[SK[0][0]],cur:SK[0][0],coins:0,best:0};try{s1=JSON.parse(localStorage.getItem(skey())||'null');if(s1&&s1.own)st=s1}catch(e){}lvl=st.lv||1;run=false;over=false;won=0;boss=false;ob=[];cn=[];pj=[];bl=[];ready=true;skins();hud()}
+function save(){try{localStorage.setItem(skey(),JSON.stringify(st))}catch(e){}}
+function L(){return G[document.documentElement.lang]||G.es}
+function hud(){rs.textContent=boss?'BOSS':Math.floor(dist)+'/'+goal();rv.textContent=lvl;rm.textContent=st.coins;rb.textContent=st.best;}
+var PR={};
+function skins(){rsl.innerHTML='';SK.forEach(function(k){var e=k[0],own=st.own.indexOf(e)>=0,b=document.createElement('button');b.type='button';b.className='sk';if(e===SK[SK.length-2][0])b.style.boxShadow='0 0 12px #7fe3ff';if(e===SK[SK.length-1][0])b.style.boxShadow='0 0 12px #ffd24d';b.innerHTML=own?e:e+'<small>'+PR[e]+' '+CN+'</small>';b.setAttribute('aria-pressed',e===st.cur);b.onclick=function(){if(own){st.cur=e}else if(st.coins>=PR[e]){st.coins-=PR[e];st.own.push(e);st.cur=e;rmsg.textContent=e+' '+L().got}else{rmsg.textContent=L().no;return}save();hud();skins()};rsl.appendChild(b)})}
+function goal(){return 350+lvl*100}
+function start(){py=GY;vy=0;ob=[];cn=[];dist=0;boss=false;pj=[];bp=60;bl=[];cd=0;PX=80;ul=0;fx=0;lvl=st.lv||1;fl=90;sp=40;run=true;over=false;won=0;hud()}
+function act(){if(!run){start()}else if(py>=GY)vy=-12.5}
+function shoot(){if(!run||cd>0)return;bl.push({x:PX+16,y:py-18});cd=14}
+cv.addEventListener('pointerdown',function(e){e.preventDefault();act()});
+document.addEventListener('keydown',function(e){if((e.code==='Space'||e.code==='ArrowUp')&&m.classList.contains('game-mode')){e.preventDefault();act()}});
+var KL=0,KR=0;
+function gm(){return m.classList.contains('game-mode')}
+document.addEventListener('keydown',function(e){if(!gm())return;var c=e.code;if(c==='KeyF'||c==='KeyX'||c==='Enter'){e.preventDefault();shoot()}else if(c==='KeyZ'){e.preventDefault();ult()}else if(c==='KeyW'){e.preventDefault();act()}else if(c==='KeyA'||c==='ArrowLeft'){e.preventDefault();KL=1}else if(c==='KeyD'||c==='ArrowRight'){e.preventDefault();KR=1}});
+document.addEventListener('keyup',function(e){var c=e.code;if(c==='KeyA'||c==='ArrowLeft')KL=0;if(c==='KeyD'||c==='ArrowRight')KR=0});
+function ult(){if(!run||ul<100)return;ul=0;ob=[];pj=[];fx=22;if(boss)bhp-=Math.ceil(bmax*.4)}
+function die(){run=false;over=true;won=0;save();hud()}
+function win(){boss=false;run=false;over=false;won=lvl>=10?2:1;st.coins+=10+lvl*2;if(lvl>st.best)st.best=lvl;st.lv=lvl>=10?1:lvl+1;lvl=st.lv;dist=0;save();hud()}
+function step(d){var s=4.5+lvl*.6,i;if(!boss){dist+=s*d*.1;if(dist>=goal()){boss=true;bt=0;pj=[];bp=60;fl=90;bmax=bhp=8+lvl*2}}
+vy+=.65*d;py+=vy*d;if(py>GY){py=GY;vy=0}if(KL)PX=Math.max(30,PX-4.5*d);if(KR)PX=Math.min(480,PX+4.5*d);ul=Math.min(100,ul+.03*d);
+if(!boss)sp-=d;if(!boss&&sp<=0){var g=s*48+Math.random()*180,ox=W+30;var kd=Math.random();if(lvl>=2&&kd<.22){ob.push(mk(ox,'f'));ob.push(mk(ox+90))}else if(kd<(lvl>=2?.4:.18)){ob.push(mk(ox,'c'));ob.push(mk(ox+70))}else{ob.push(mk(ox));if(Math.random()<.3&&lvl>2)ob.push(mk(ox+50))}
+if(Math.random()<.7)for(i=0;i<3;i++)cn.push({x:ox-20+i*30,y:GY-55-(i===1?22:0)});
+if(Math.random()<.5)cn.push({x:ox+g/2,y:GY-20});sp=g/s}
+if(boss){bt+=d;bp-=d;if(bp<=0){pj.push({x:W-100,y:Math.random()<.5?GY-14:GY-72});bp=55+Math.random()*40}pj.forEach(function(p){p.x-=(6+lvl*.4)*d});pj=pj.filter(function(p){return p.x>-30});for(i=0;i<pj.length;i++){if(Math.abs(pj[i].x-PX)<20&&Math.abs(pj[i].y-(py-18))<26){die();return}}if(bhp<=0){win();return}}
+if(cd>0)cd-=d;bl.forEach(function(b){b.x+=12*d});bl=bl.filter(function(b){var k,q;if(b.x>W)return false;if(boss&&b.x>W-150){bhp--;return false}for(k=0;k<ob.length;k++){q=ob[k];if(b.x>q.x&&b.x<q.x+q.w+10&&(q.t==='g'?(b.y>GY-2.7*q.r&&b.y<GY+8):Math.abs(b.y-oy(q))<q.r+5)){q.hp--;if(q.hp<=0){ob.splice(k,1);ul=Math.min(100,ul+12)}return false}}return true});
+ob.forEach(function(o){o.x-=s*d});cn.forEach(function(c){c.x-=s*d});
+ob=ob.filter(function(o){return o.x>-60});cn=cn.filter(function(c){return c.x>-30});
+for(i=0;i<ob.length;i++){var o=ob[i];if(o.t==='g'){if(PX+12>o.x+6&&PX-12<o.x+o.w-6&&py>GY+2-1.9*o.r){die();return}}else{var yy=oy(o);if(Math.abs(PX-(o.x+o.r))<12+o.r*.85&&py-36<yy+o.r*.85&&py>yy-o.r*.85){die();return}}}
+cn=cn.filter(function(c){if(Math.abs(c.x-PX)<24&&Math.abs(c.y-(py-18))<26){st.coins++;save();return false}return true});
+if(fl>0)fl-=d;hud()}
+function oy(o){return o.t==='g'?GY+2-1.3*o.r:o.cy+(o.t==='f'?Math.sin(bgt*.08+o.ph)*6:0)}
+function mk(x0,k){var r=8+Math.random()*19,H=HU,o={x:x0,w:2*r,r:r,hp:r>20?2:1,sp:9+(Math.random()*6|0),h:H[Math.random()*H.length|0],face:Math.random()*6|0,ph:Math.random()*6,t:k||'g'};if(k==='f'){o.r=9+Math.random()*7;o.w=2*o.r;o.hp=1;o.cy=GY-72-Math.random()*34}else if(k==='c'){o.r=7+Math.random()*6;o.w=2*o.r;o.hp=1;o.cy=66-o.r}return o}
+function drawV(o){var cx=o.x+o.r,cy=oy(o),r=o.r,n=o.sp,i,a,c='hsl('+o.h+',85%,55%)';x.save();if(o.t==='c'){x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=1;x.beginPath();x.moveTo(cx,0);x.lineTo(cx,cy-r);x.stroke()}if(o.t==='f'){var wy=r*.6*(.4+.6*Math.abs(Math.sin(bgt*.3)));x.fillStyle='rgba(255,255,255,.6)';x.beginPath();x.ellipse(cx-r*1.15,cy-r*.7,r*.7,wy,-.5,0,6.283);x.ellipse(cx+r*1.15,cy-r*.7,r*.7,wy,.5,0,6.283);x.fill()}x.strokeStyle=c;x.fillStyle=c;x.lineWidth=Math.max(2,r/5);x.lineCap='round';for(i=0;i<n;i++){a=i/n*6.283+bgt*.01;x.beginPath();x.moveTo(cx+Math.cos(a)*r*.8,cy+Math.sin(a)*r*.8);x.lineTo(cx+Math.cos(a)*r*1.3,cy+Math.sin(a)*r*1.3);x.stroke();x.beginPath();x.arc(cx+Math.cos(a)*r*1.33,cy+Math.sin(a)*r*1.33,Math.max(1.5,r/9),0,6.283);x.fill()}x.beginPath();x.arc(cx,cy,r,0,6.283);x.fill();x.fillStyle='rgba(255,255,255,.35)';x.beginPath();x.arc(cx-r*.3,cy-r*.3,r*.3,0,6.283);x.fill();face(o.face,cx,cy,r);x.restore()}
+function face(f,cx,cy,r){var e=r*.3,ey=cy-r*.05,lw=Math.max(1,r*.1);function dot(px,py,rr,c){x.fillStyle=c||'#111';x.beginPath();x.arc(px,py,rr,0,6.283);x.fill()}function ln(a,b,c,d){x.strokeStyle='#111';x.lineWidth=lw;x.lineCap='round';x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke()}function ar(px,py,rr,a0,a1){x.strokeStyle='#111';x.lineWidth=lw;x.lineCap='round';x.beginPath();x.arc(px,py,rr,a0,a1);x.stroke()}
+if(f===0){dot(cx-e,ey,r*.13);dot(cx+e,ey,r*.13);ar(cx,cy+r*.05,r*.32,.3,2.84)}
+else if(f===1){dot(cx-e,ey+r*.06,r*.13);dot(cx+e,ey+r*.06,r*.13);ln(cx-e-r*.18,ey-r*.24,cx-e+r*.14,ey-r*.08);ln(cx+e+r*.18,ey-r*.24,cx+e-r*.14,ey-r*.08);ln(cx-r*.26,cy+r*.4,cx+r*.26,cy+r*.4)}
+else if(f===2){dot(cx,ey,r*.34,'#fff');dot(cx+r*.06,ey,r*.16);ar(cx,cy+r*.15,r*.22,.4,2.74)}
+else if(f===3){dot(cx-e,ey,r*.2,'#fff');dot(cx+e,ey,r*.2,'#fff');dot(cx-e,ey,r*.09);dot(cx+e,ey,r*.09);x.fillStyle='#111';x.fillRect(cx-r*.32,cy+r*.24,r*.64,r*.28);x.fillStyle='#fff';x.fillRect(cx-r*.22,cy+r*.24,r*.15,r*.1);x.fillRect(cx+r*.07,cy+r*.24,r*.15,r*.1)}
+else if(f===4){var k=r*.1;ln(cx-e-k,ey-k,cx-e+k,ey+k);ln(cx-e-k,ey+k,cx-e+k,ey-k);ln(cx+e-k,ey-k,cx+e+k,ey+k);ln(cx+e-k,ey+k,cx+e+k,ey-k);x.strokeStyle='#111';x.lineWidth=lw;x.lineCap='round';x.beginPath();x.moveTo(cx-r*.32,cy+r*.38);x.quadraticCurveTo(cx-r*.16,cy+r*.26,cx,cy+r*.38);x.quadraticCurveTo(cx+r*.16,cy+r*.5,cx+r*.32,cy+r*.38);x.stroke()}
+else{dot(cx-e,ey,r*.16);dot(cx+e,ey,r*.16);dot(cx-e-r*.04,ey-r*.04,r*.05,'#fff');dot(cx+e-r*.04,ey-r*.04,r*.05,'#fff');ar(cx,cy+r*.38,r*.12,0,6.283)}}
+function draw(){x.clearRect(0,0,W,260);var th=TH[(lvl-1)%TH.length],gr=x.createLinearGradient(0,0,0,260),i,q;gr.addColorStop(0,th[0]);gr.addColorStop(1,th[1]);x.fillStyle=gr;x.fillRect(0,0,W,260);bgt+=1;if(fx>0){x.fillStyle='rgba(255,255,255,'+fx/22+')';x.fillRect(0,0,W,260);fx--}x.textAlign='center';x.strokeStyle='rgba(255,255,255,.3)';x.beginPath();x.moveTo(0,GY+4);x.lineTo(W,GY+4);x.stroke();
+x.textAlign='center';x.textBaseline='bottom';x.font='32px sans-serif';ob.forEach(drawV);
+x.font='20px sans-serif';x.textBaseline='middle';bl.forEach(function(b){x.fillText(BU,b.x,b.y)});x.font='22px sans-serif';x.textBaseline='middle';cn.forEach(function(c){x.fillText(CN,c.x,c.y)});
+if(boss){x.font='84px sans-serif';x.textBaseline='bottom';x.fillText(BS[(lvl-1)%BS.length],W-70,GY+6);x.font='24px sans-serif';x.textBaseline='middle';pj.forEach(function(p){x.fillText(PJ,p.x,p.y)})}
+x.textBaseline='bottom';x.font='38px sans-serif';x.fillText(st.cur,PX,py+6);
+x.font='600 18px Manrope,system-ui,sans-serif';x.fillStyle='#F2F5F8';x.textBaseline='middle';
+if(run){x.fillStyle='rgba(255,255,255,.18)';x.fillRect(20,246,120,6);x.fillStyle=ul>=100?'#FFD24D':'#4DA3FF';x.fillRect(20,246,1.2*ul,6);x.fillStyle='rgba(255,255,255,.18)';x.fillRect(20,16,W-40,8);x.fillStyle=boss?'#FF5A5A':'#4DA3FF';x.fillRect(20,16,(W-40)*(boss?Math.max(0,bhp/bmax):Math.min(1,dist/goal())),8);x.fillStyle='#F2F5F8';if(fl>0)x.fillText(boss?'BOSS':L().lv+' '+lvl,W/2,56)}else x.fillText(won===2?L().all:won?L().win:over?L().over:L().go,W/2,90)}
+function loop(t){var sn=document.documentElement.getAttribute('data-season')||'';if(ready&&sn!==cs)apS(sn);if(m.classList.contains('game-mode')){var d=Math.min(2.5,(t-last)/16.67||1);if(run)step(d);draw()}last=t;requestAnimationFrame(loop)}
+rbox.onclick=function(){if(st.coins<10){rmsg.textContent=L().no;return}st.coins-=10;var tot=0,i;SK.forEach(function(k){tot+=k[1]});var r=Math.random()*tot,p=SK[0][0];for(i=0;i<SK.length;i++){r-=SK[i][1];if(r<=0){p=SK[i][0];break}}
+if(st.own.indexOf(p)>=0){st.coins+=3;rmsg.textContent=p+' '+L().dup}else{st.own.push(p);st.cur=p;rmsg.textContent=p+' '+L().got}save();hud();skins()};
+apS('');function hold(id,f){var b=E(id);b.addEventListener('pointerdown',function(e){e.preventDefault();f(1)});['pointerup','pointerleave','pointercancel'].forEach(function(n){b.addEventListener(n,function(){f(0)})})}hold('kl',function(v){KL=v});hold('kr',function(v){KR=v});E('bj').addEventListener('pointerdown',function(e){e.preventDefault();act()});E('ub').addEventListener('pointerdown',function(e){e.preventDefault();ult()});E('fire').addEventListener('pointerdown',function(e){e.preventDefault();shoot()});requestAnimationFrame(loop)})();
+(function(){var m=document.getElementById("top"),tb=[].slice.call(document.querySelectorAll(".tabs button"));
+function show(t){m.classList.toggle("game-mode",t==="game");m.classList.toggle("profile-mode",t==="profile");tb.forEach(function(b){b.setAttribute("aria-selected",b.getAttribute("data-t")===t)});scrollTo(0,0)}
+tb.forEach(function(b){b.onclick=function(){show(b.getAttribute("data-t"))}});
+[].slice.call(document.querySelectorAll("nav a")).forEach(function(a){a.addEventListener("click",function(){if(m.className)show("main")})})})();
+(function(){var c=document.getElementById("bg"),x=c.getContext("2d"),P=[],W,H,D=Math.min(window.devicePixelRatio||1,2),R=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+function size(){W=innerWidth;H=innerHeight;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0);var n=Math.max(25,Math.min(90,Math.round(W*H/16000)));while(P.length<n)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});P.length=n}
+function draw(){x.clearRect(0,0,W,H);var i,j,p,q,d;for(i=0;i<P.length;i++){p=P[i];if(!R){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+x.fillStyle="rgba("+(window.PC||"255,255,255")+",.6)";x.beginPath();x.arc(p.x,p.y,1.8,0,6.283);x.fill();
+for(j=i+1;j<P.length;j++){q=P[j];d=Math.hypot(p.x-q.x,p.y-q.y);if(d<140){x.strokeStyle="rgba("+(window.PC||"255,255,255")+","+(0.18*(1-d/140))+")";x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}
+if(!R)requestAnimationFrame(draw)}
+size();draw();addEventListener("resize",function(){size();if(R)draw()});
+})();
+(function(){var H=document.documentElement,sw=document.getElementById('sw'),se=document.getElementById('se'),lg=document.querySelector('.logo'),ic={default:'',halloween:'🎃',newyear:'🎄',valentine:'💝',summer:'☀️'},PCS={default:'255,255,255',halloween:'255,138,31',newyear:'245,200,76',valentine:'255,111,165',summer:'255,197,61'},bt=[].slice.call(sw.querySelectorAll('button[data-s]')),un=false,cl=0,ct,s0='default';
+function ap(s){if(!ic.hasOwnProperty(s))s='default';if(s==='default')H.removeAttribute('data-season');else H.setAttribute('data-season',s);se.textContent=ic[s];window.PC=PCS[s];bt.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===s)});try{localStorage.setItem('season',s)}catch(e){}}
+bt.forEach(function(b){b.addEventListener('click',function(){ap(b.getAttribute('data-s'))})});
+document.getElementById('swx').addEventListener('click',function(){show(false);try{localStorage.setItem('swun','0')}catch(e){}});
+lg.addEventListener('click',function(e){e.preventDefault();cl++;clearTimeout(ct);ct=setTimeout(function(){cl=0},900);if(cl>=5){cl=0;show(true);try{localStorage.setItem('swun','1')}catch(e){}}});
+try{un=localStorage.getItem('swun')==='1';s0=localStorage.getItem('season')||'default'}catch(e){}
+function show(v){sw.hidden=!v;H.classList.toggle('sw-on',v)}
+function own(){if(location.hash==='#tema-grom'){show(true);try{localStorage.setItem('swun','1')}catch(e){}}}
+show(un);own();addEventListener('hashchange',own);ap(s0);
+})();
+(function(){var c=document.getElementById('fx'),x=c.getContext('2d'),W,H,D=Math.min(window.devicePixelRatio||1,2),R=matchMedia('(prefers-reduced-motion:reduce)').matches,mx=-1,my=-1,P=[],t=0,tp=document.getElementById('top'),fl=0;
+function size(){W=innerWidth;H=innerHeight;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0)}
+function S(){return document.documentElement.getAttribute('data-season')||''}
+function boom(bx,by){var i,a,n=28,h=Math.random()*60+30;for(i=0;i<n;i++){a=i/n*6.283;P.push({k:'f',x:bx,y:by,vx:Math.cos(a)*(2+Math.random()*2),vy:Math.sin(a)*(2+Math.random()*2),l:50,h:h})}}
+size();addEventListener('resize',size);
+addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;if(S()==='valentine'&&!R&&Math.random()<.35)P.push({k:'h',x:mx,y:my,vx:(Math.random()-.5)*1.2,vy:-.8-Math.random(),s:12+Math.random()*10,l:70})});
+addEventListener('pointerdown',function(e){if(S()==='newyear'&&!R)boom(e.clientX,e.clientY)});
+function frame(){t++;x.clearRect(0,0,W,H);var s=S(),gm=tp.classList.contains('game-mode'),cx=mx<0?W/2:mx,cy=my<0?H/3:my,nb=0,ns=0,r,g;
+if(!gm){var hw=s==='halloween',pc=window.PC||'255,255,255';x.fillStyle='rgba(0,0,0,'+(hw?.62:.55)+')';x.fillRect(0,0,W,H);r=hw?230*(1+.03*Math.sin(t*.25)+Math.random()*.015):230;g=x.createRadialGradient(cx,cy,r*.15,cx,cy,r);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');x.globalCompositeOperation='destination-out';x.fillStyle=g;x.fillRect(cx-r,cy-r,2*r,2*r);x.globalCompositeOperation='source-over';
+if(!hw){g=x.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,'rgba('+pc+',.14)');g.addColorStop(1,'rgba('+pc+',0)');x.fillStyle=g;x.fillRect(cx-r,cy-r,2*r,2*r)}}
+P.forEach(function(q){if(q.k==='b')nb++;if(q.k==='s')ns++});
+if(!R){if(s==='halloween'&&nb<5&&Math.random()<.012)P.push({k:'b',e:'🦇',x:-30,y:40+Math.random()*H*.5,vx:1.6+Math.random()*1.6,ph:Math.random()*6,sz:26});
+if(s==='summer'&&nb<4&&Math.random()<.01)P.push({k:'b',e:'🦋',x:-30,y:60+Math.random()*H*.6,vx:.9+Math.random(),ph:Math.random()*6,sz:24});
+if(s==='newyear'){if(ns<80&&Math.random()<.5)P.push({k:'s',x:Math.random()*W,y:-10,vy:.7+Math.random()*1.4,ph:Math.random()*6,r:1.5+Math.random()*2.2});if(t%170===0)boom(W*(.15+Math.random()*.7),H*(.1+Math.random()*.35))}
+if(s==='valentine'&&Math.random()<.06)P.push({k:'h',x:Math.random()*W,y:H+20,vx:(Math.random()-.5)*.6,vy:-.6-Math.random()*.8,s:14+Math.random()*12,l:400})}
+P=P.filter(function(p){
+if(p.k==='b'){p.x+=p.vx;p.y+=Math.sin(t*.08+p.ph)*1.2;x.font=p.sz+'px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(p.e,p.x,p.y);return p.x<W+40}
+if(p.k==='s'){p.y+=p.vy;p.x+=Math.sin(t*.03+p.ph)*.5;x.fillStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();return p.y<H+10}
+if(p.k==='h'){p.x+=p.vx;p.y+=p.vy;p.l--;x.globalAlpha=Math.max(0,Math.min(1,p.l/60));x.font=p.s+'px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('❤️',p.x,p.y);x.globalAlpha=1;return p.l>0&&p.y>-30}
+if(p.k==='f'){p.x+=p.vx;p.y+=p.vy;p.vy+=.06;p.vx*=.985;p.l--;x.globalAlpha=Math.max(0,p.l/50);x.fillStyle='hsl('+p.h+',100%,65%)';x.beginPath();x.arc(p.x,p.y,2.2,0,6.283);x.fill();x.globalAlpha=1;return p.l>0}
+return false});
+if(s==='halloween'){[.06,.94].forEach(function(f,i){var sx=W*f,sy=80+i*20+(R?0:Math.sin(t*.03+i*2)*16);x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=1;x.beginPath();x.moveTo(sx,0);x.lineTo(sx,sy);x.stroke();x.font='26px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('🕷️',sx,sy+10)});
+if(!gm&&!R&&fl<=0&&Math.random()<.0015)fl=8}
+if(fl>0){x.fillStyle='rgba(255,255,255,'+fl/45+')';x.fillRect(0,0,W,H);fl--}
+requestAnimationFrame(frame)}
+frame();
+})();
+</script>
+</body>
+</html>
